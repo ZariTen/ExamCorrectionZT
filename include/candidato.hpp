@@ -13,7 +13,11 @@ struct Candidato{
 
   public:
     void acertarQuestao(); //Add 1 to acertos
-    Candidato(std::string nome,char* r);
+    void setQuestoes(std::string quest); //Passa as questoes que o candidato marcou
+    void setNome(std::string nome);
+
+    std::string getNome();
+    char* getRespostas();
     void checkSizeTest(Prova pr); //If qtdQuestoes > 10, set respostas size to qtdQuestoes size
 };
 

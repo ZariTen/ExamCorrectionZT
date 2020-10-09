@@ -1,5 +1,6 @@
 #include <iostream>
 #include <prova.hpp>
+#include <candidato.hpp>
 
 int main(int argc, char* argv[]){
 
@@ -7,6 +8,8 @@ int main(int argc, char* argv[]){
                 return 0;
         }
         Prova p;
+        p.setGabarito("ABCDEEDCBA");
         p.lerProva(argv[1]);
+        Candidato candidatosArr[p.getQtdAlunos()];
         return 0;
 }

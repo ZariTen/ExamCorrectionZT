@@ -3,6 +3,7 @@
 
 #include <string>
 #include <questao.hpp>
+#include <candidato.hpp>
 
 struct Prova{
     private:
@@ -19,6 +20,7 @@ struct Prova{
         int getQtdQuestoes();
 
         void lerProva(std::string path); //Ler arquivo e contar quantos alunos e questões
+        void analisarProva(std::string path); //Setar alunos e questoes
 };
 
 #endif
