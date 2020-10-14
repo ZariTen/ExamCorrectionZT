@@ -5,19 +5,30 @@
 
 # Métodos disponiveis
 best - Melhores alunos.
+
 worst - Piores alunos.
+
 best-questions - Questões com mais acertos.
+
 worst-questions - Questões com mais erros.
+
 blank-questions - Questões com mais brancos.
+
 [Quantidade] é o tamanho de alunos que desejas printar.
 
 # Formato do arquivo
 [Nome] X X X X X X
+
 Antero E A C A E C B B B B
+
 Luca D E U B E A A B A E
+
 Jurema D E E C A G E D E D
+
 Daisy D C E C E B E A A D
+
 Carla D C A D C E E D C M
+
 Tayná B A D M W C C H B B
 
 # Formato do gabarito
