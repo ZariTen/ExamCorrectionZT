@@ -9,7 +9,7 @@ struct Prova{
         int quantidadeAlunos;
         int quantidadeQuestoes;
         std::string gabarito;
-        Questao questoes[10]; //if lerProva return quantidadeQuestoes >10, resize.
+        Questao* questoes;
 
     public:
         void setGabarito(std::string gabarito);
@@ -17,6 +17,9 @@ struct Prova{
 
         int getQtdAlunos();
         int getQtdQuestoes();
+
+        Prova();
+        ~Prova();
 
         void lerProva(std::string path); //Ler arquivo e contar quantos alunos e questões
         void analisarProva(std::string path); //Setar alunos e questoes

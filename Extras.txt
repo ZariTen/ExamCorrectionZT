@@ -1,0 +1,2 @@
+- O número de questões é analizado pelo próprio programa, sem requerir que o usuário bote manualmente
+- Recebe um arquivo gabarito como parâmetro de entrada

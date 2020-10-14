@@ -2,7 +2,7 @@
 #define QUESTAO_H
 
 struct Questao{
-    char letra;
+    int numQuestao=0;
     int acertos=0;
     int errors=0;
     int brancos=0;
