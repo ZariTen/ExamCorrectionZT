@@ -1,7 +1,7 @@
 # Como utilizar
-1. Vá na pasta build e use cmake ..
-2. Use make
-3. Use ./programa [Localização do arquivo] [Método] [Quantidade] [Localização do Gabarito]
+1. Crie uma pasta build e nela use `cmake ..`
+2. Use `make`
+3. Use `./programa [Localização do arquivo] [Método] [Quantidade] [Localização do Gabarito]`
 
 # Métodos disponiveis
 best - Melhores alunos.
