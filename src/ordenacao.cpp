@@ -1,28 +1,36 @@
 #include <ordenacao.hpp>
 
-void trocar(Candidato *old,Candidato *newer){
-    Candidato temp = *old;
-    *old = *newer;
-    *newer = temp;
-}
-
+//Insertion sort inspirado em: https://www.geeksforgeeks.org/insertion-sort/
 void ordernarPiorCandidato(Candidato* candidatos, int qtd){
-    for(int i = 0; i < qtd-i; ++i){
-        for(int j  = 0; j < qtd-i-1; ++j){
-            if(candidatos[j].questoesCertas() > candidatos[j+1].questoesCertas()){
-                trocar(&candidatos[j],&candidatos[j+1]);
-            }
+    Candidato key;
+    int j;
+
+    for(int i = 1; i < qtd; ++i){
+        key = candidatos[i];
+        j = i - 1;
+
+        while(j>= 0 && candidatos[j].questoesCertas() > key.questoesCertas()){
+            candidatos[j+1] = candidatos[j];
+            j = j-1;
         }
+        candidatos[j+1] = key;
     }
 }
 
+//Insertion sort inspirado em: https://www.geeksforgeeks.org/insertion-sort/
 void ordernarMelhorCandidato(Candidato* candidatos,int qtd){
-    for(int i = 0; i < qtd-i; ++i){
-        for(int j  = 0; j < qtd-i-1; ++j){
-            if(candidatos[j].questoesCertas() < candidatos[j+1].questoesCertas()){
-                trocar(&candidatos[j],&candidatos[j+1]);
-            }
+    Candidato key;
+    int j;
+
+    for(int i = 1; i < qtd; ++i){
+        key = candidatos[i];
+        j = i - 1;
+
+        while(j>= 0 && candidatos[j].questoesCertas() < key.questoesCertas()){
+            candidatos[j+1] = candidatos[j];
+            j = j-1;
         }
+        candidatos[j+1] = key;
     }
 }
 

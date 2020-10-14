@@ -6,8 +6,12 @@
 #include <ordenacao.hpp>
 
 int main(int argc, char* argv[]){
-
-        if(argc < 2){
+        // ./programa [Localização do arquivo] [metodo] [quantidade]
+        // argv[1] = localização
+        // argv[2] = metodo
+        // argv[3] = quantidade
+        if(argc < 4){
+                std::cout << "./programa [Localização do arquivo] [metodo] [quantidade]" << std::endl;
                 return 0;
         }
         Prova p;
@@ -22,17 +26,30 @@ int main(int argc, char* argv[]){
         corrigirProva(candidatosArr,argv[1]);
         corrigirRespostas(candidatosArr,questoes,qtdAlunos,qtdQuestoes,p.getGabarito());
 
-        ordernarPiorCandidato(candidatosArr,qtdAlunos);
+        int quantidadeMostrar = atoi(argv[3]);
 
-        for(int i = 0; i < 30; ++i){
-                std::cout << candidatosArr[i].getNome() << ": " << candidatosArr[i].questoesCertas() << std::endl;
-                //std::cout << candidatosArr[i].getNome() << ": " << candidatosArr[i].resposta << std::endl;
+        if(argv[2] == std::string("best")){
+                ordernarMelhorCandidato(candidatosArr,qtdAlunos);
+        }
+        else if (argv[2] == std::string("worst")){
+                ordernarPiorCandidato(candidatosArr,qtdAlunos);
+        }
+        else if (argv[2] == std::string("best-questions")){
+                ordernarQuestao(questoes,0);
+        }
+        else if (argv[2] == std::string("worst-questions")){
+                ordernarQuestao(questoes,1);
+        }
+        else if (argv[2] == std::string("blank-questions")){
+                ordernarQuestao(questoes,2);
+        }
+        else{
+                std::cout << "Comando inválido. Apenas: best,worst,best-questions,worst-questions,blank-questions." << std::endl;
         }
 
-        for(int i = 0; i < qtdQuestoes; ++i){
-                //std::cout << "Questao " << i+1 << " acertos:" << questoes[i].acertos << std::endl;
-                //std::cout << "Questao " << i+1 << " errors:" << questoes[i].errors << std::endl;
-                //std::cout << "Questao " << i+1 << " brancos:" << questoes[i].brancos << std::endl;
+        for(int i = 0; i < quantidadeMostrar; ++i){
+                std::cout << i+1 << " - " << candidatosArr[i].getNome() << ": " << candidatosArr[i].questoesCertas() << std::endl;
+                //std::cout << candidatosArr[i].getNome() << ": " << candidatosArr[i].resposta << std::endl;
         }
         return 0;
 }

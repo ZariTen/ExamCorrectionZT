@@ -52,7 +52,4 @@ void Prova::lerProva(std::string path){
             ++quantidadeAlunos;
         }
     }
-
-    std::cout << "Quantidade alunos: " << quantidadeAlunos << std::endl;
-    std::cout << "Quantidade questoes: " << quantidadeQuestoes << std::endl;
 }
