@@ -3,7 +3,6 @@
 
 #include <string>
 #include <questao.hpp>
-#include <candidato.hpp>
 
 struct Prova{
     private:

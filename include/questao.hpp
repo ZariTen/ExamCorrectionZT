@@ -3,9 +3,9 @@
 
 struct Questao{
     char letra;
-    int acertos;
-    int errors;
-    int brancos;
+    int acertos=0;
+    int errors=0;
+    int brancos=0;
 };
 
 #endif

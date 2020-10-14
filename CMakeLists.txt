@@ -7,4 +7,7 @@ include_directories(include)
 add_executable(programa
     src/main.cpp
     src/prova.cpp
+    src/corretor.cpp
+    src/candidato.cpp
+    src/ordenacao.cpp
 )
