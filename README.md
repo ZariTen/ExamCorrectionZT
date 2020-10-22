@@ -1,22 +1,22 @@
-# Como utilizar
-1. Crie uma pasta build e nela use `cmake ..`
+# How to use
+1. Make a directory build and use `cmake ..`
 2. Use `make`
-3. Use `./programa [Localização do arquivo] [Método] [Quantidade] [Localização do Gabarito]`
+3. Use `./programa [Answers file] [Method] [Quantity] [Correct answers file]`
 
-# Métodos disponiveis
-**best** - Melhores alunos.
+# Methods to use
+**best** - Best students based on answers
 
-**worst** - Piores alunos.
+**worst** - Worst students based on answers
 
-**best-questions** - Questões com mais acertos.
+**best-questions** - Questions which most students got right
 
-**worst-questions** - Questões com mais erros.
+**worst-questions** - Questions which most students got wrong
 
-**blank-questions** - Questões com mais brancos.
+**blank-questions** - Questões which most students didn't mark `A-E`
 
-**[Quantidade]** é o tamanho de alunos que desejas printar.
+**[Quantity]** size of the list to print
 
-# Formato do arquivo
+# File format
 [Nome] X X X X X X
 
 Antero E A C A E C B B B B
@@ -31,10 +31,12 @@ Carla D C A D C E E D C M
 
 Tayná B A D M W C C H B B
 
-# Formato do gabarito
+# Correct answers format
 A D E E B C B A ...
 
-# Importante
-O programa vai entender que o máximo de questões é quantas questões os alunos **marcaram**.
+# Important
+The program can detect the number of questions based on how many questions the students answered.
 
-O programa só ira reconhecer as letras de **A - E** , qualquer outra letra é considerada branco.
+The program will only recognize **A - E** , any other will be considered blank.
+
+Keep in mind most part of the code uses portuguese variables.
