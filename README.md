@@ -4,17 +4,17 @@
 3. Use `./programa [Localização do arquivo] [Método] [Quantidade] [Localização do Gabarito]`
 
 # Métodos disponiveis
-best - Melhores alunos.
+**best** - Melhores alunos.
 
-worst - Piores alunos.
+**worst** - Piores alunos.
 
-best-questions - Questões com mais acertos.
+**best-questions** - Questões com mais acertos.
 
-worst-questions - Questões com mais erros.
+**worst-questions** - Questões com mais erros.
 
-blank-questions - Questões com mais brancos.
+**blank-questions** - Questões com mais brancos.
 
-[Quantidade] é o tamanho de alunos que desejas printar.
+**[Quantidade]** é o tamanho de alunos que desejas printar.
 
 # Formato do arquivo
 [Nome] X X X X X X
