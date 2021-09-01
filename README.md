@@ -3,7 +3,7 @@
 2. Use `make`
 3. Use `./programa [Answers file] [Method] [Quantity] [Correct answers file]`
 
-# Methods to use
+# Methods parameters
 **best** - Best students based on answers
 
 **worst** - Worst students based on answers
@@ -12,12 +12,12 @@
 
 **worst-questions** - Questions which most students got wrong
 
-**blank-questions** - Questões which most students didn't mark `A-E`
+**blank-questions** - Questions which most students didn't mark `A-E`
 
-**[Quantity]** size of the list to print
+**[Quantity]** - Number of students to print
 
 # File format
-[Nome] X X X X X X
+[Name] X X X X X X
 
 Antero E A C A E C B B B B
 
@@ -32,7 +32,7 @@ Carla D C A D C E E D C M
 Tayná B A D M W C C H B B
 
 # Correct answers format
-A D E E B C B A ...
+A D E E B C B A
 
 # Important
 The program can detect the number of questions based on how many questions the students answered.
