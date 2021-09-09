@@ -70,15 +70,15 @@ int main(int argc, char* argv[]){
                 mostrarCandidatos(quantidadeMostrar,candidatosArr);
         }
         else if (argv[2] == std::string("best-questions")){
-                ordernarQuestao(questoes,0,qtdQuestoes);
+                ordernarQuestoesOpcao(questoes,0,qtdQuestoes);
                 mostrarQuestoes(questoes,quantidadeMostrar,0);
         }
         else if (argv[2] == std::string("worst-questions")){
-                ordernarQuestao(questoes,1,qtdQuestoes);
+                ordernarQuestoesOpcao(questoes,1,qtdQuestoes);
                 mostrarQuestoes(questoes,quantidadeMostrar,1);
         }
         else if (argv[2] == std::string("blank-questions")){
-                ordernarQuestao(questoes,2,qtdQuestoes);
+                ordernarQuestoesOpcao(questoes,2,qtdQuestoes);
                 mostrarQuestoes(questoes,quantidadeMostrar,2);
         }
         else{

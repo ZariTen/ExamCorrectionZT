@@ -1,5 +1,5 @@
 # How to use
-1. Make a directory build and use `cmake ..`
+1. Make a directory `build` and `cd` into it, then use `cmake ..`
 2. Use `make`
 3. Use `./programa [Answers file] [Method] [Quantity] [Correct answers file]`
 
