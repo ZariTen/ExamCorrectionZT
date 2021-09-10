@@ -48,7 +48,7 @@ void escolherMetodo(std::string metodo, int tamanhoTabela, Questao* questoes,Can
 
         switch(metodoParaInt){
                 default:
-                        std::cout << "Comando inválido. Apenas: best,worst,best-questions,worst-questions,blank-questions." << std::endl;
+                        std::cout << "Método inválido. São válidos apenas: best,worst,best-questions,worst-questions,blank-questions." << std::endl;
                         break;
                 case 0:
                         ordernarMelhorCandidato(candidatos,qtdAlunos);
@@ -75,7 +75,7 @@ void escolherMetodo(std::string metodo, int tamanhoTabela, Questao* questoes,Can
 
 int main(int argc, char* argv[]){
         if(argc < 5){
-                std::cout << "./programa [Localização do arquivo] [Método] [Quantidade] [Localização do Gabarito]" << std::endl;
+                std::cout << "./programa [Arquivo respostas] [Método] [Quantidade] [Arquivo Gabarito]" << std::endl;
                 return 0;
         }
         std::string respostasPath = argv[1];
