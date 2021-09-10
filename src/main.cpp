@@ -5,8 +5,8 @@
 #include <questao.hpp>
 #include <ordenacao.hpp>
 
-void mostrarCandidatos(int quantidadeMostrar, Candidato* candidatosArr){
-        for(int i = 0; i < quantidadeMostrar; ++i){
+void mostrarCandidatos(int tamanhoTabela, Candidato* candidatosArr){
+        for(int i = 0; i < tamanhoTabela; ++i){
                 std::cout << i+1 << " - " << candidatosArr[i].getNome() << ": " << candidatosArr[i].questoesCertas() << std::endl;
         }
 }
@@ -32,18 +32,60 @@ void mostrarQuestoes(Questao* questoes,int qtdQuestao,int opcao){
         }
 }
 
+int metodoEmInt(std::string metodo){
+        if(metodo == std::string("best")){return 0;}
+        else if (metodo == std::string("worst")){return 1;}
+        else if (metodo == std::string("best-questions")){return 2;}
+        else if (metodo == std::string("worst-questions")){return 3;}
+        else if (metodo == std::string("blank-questions")){return 4;}
+        else{return -1;}
+}
+
+void escolherMetodo(std::string metodo, int tamanhoTabela, Questao* questoes,Candidato* candidatos,Prova* prv){
+        int qtdAlunos = prv->getQtdAlunos();
+        int qtdQuestoes = prv->getQtdQuestoes();
+        int metodoParaInt = metodoEmInt(metodo);
+
+        switch(metodoParaInt){
+                default:
+                        std::cout << "Comando inválido. Apenas: best,worst,best-questions,worst-questions,blank-questions." << std::endl;
+                        break;
+                case 0:
+                        ordernarMelhorCandidato(candidatos,qtdAlunos);
+                        mostrarCandidatos(tamanhoTabela,candidatos);
+                        break;
+                case 1:
+                        ordernarPiorCandidato(candidatos,qtdAlunos);
+                        mostrarCandidatos(tamanhoTabela,candidatos);
+                        break;
+                case 2:
+                        ordernarQuestoesOpcao(questoes,0,qtdQuestoes);
+                        mostrarQuestoes(questoes,tamanhoTabela,0);
+                        break;
+                case 3:
+                        ordernarQuestoesOpcao(questoes,1,qtdQuestoes);
+                        mostrarQuestoes(questoes,tamanhoTabela,1);
+                        break;
+                case 4:
+                        ordernarQuestoesOpcao(questoes,2,qtdQuestoes);
+                        mostrarQuestoes(questoes,tamanhoTabela,2);
+                        break;
+        }
+}
+
 int main(int argc, char* argv[]){
-        // ./programa [Localização do arquivo] [metodo] [quantidade]
-        // argv[1] = localização
-        // argv[2] = metodo
-        // argv[3] = quantidade
         if(argc < 5){
                 std::cout << "./programa [Localização do arquivo] [Método] [Quantidade] [Localização do Gabarito]" << std::endl;
                 return 0;
         }
+        std::string respostasPath = argv[1];
+        std::string metodo = argv[2];
+        int tamanhoTabela = atoi(argv[3]);
+        std::string gabaritoPath = argv[4];
+
         Prova p;
-        p.setGabarito(argv[4]);
-        p.lerProva(argv[1]);
+        p.setGabarito(gabaritoPath);
+        p.lerProva(respostasPath);
 
         
 
@@ -51,39 +93,17 @@ int main(int argc, char* argv[]){
         int qtdAlunos = p.getQtdAlunos();
 
         Questao questoes[qtdQuestoes];
-        for(int i = 0; i < qtdQuestoes; ++i){
-                questoes[i].numQuestao = i+1;
+        for(int questao = 0; questao < qtdQuestoes; ++questao){
+                questoes[questao].numQuestao = questao+1;
         }
 
         Candidato candidatosArr[qtdAlunos];
-        corrigirProva(candidatosArr,argv[1]);
+        corrigirProva(candidatosArr,respostasPath);
         corrigirRespostas(candidatosArr,questoes,qtdAlunos,qtdQuestoes,p.getGabarito());
 
-        int quantidadeMostrar = atoi(argv[3]);
+        
 
-        if(argv[2] == std::string("best")){
-                ordernarMelhorCandidato(candidatosArr,qtdAlunos);
-                mostrarCandidatos(quantidadeMostrar,candidatosArr);
-        }
-        else if (argv[2] == std::string("worst")){
-                ordernarPiorCandidato(candidatosArr,qtdAlunos);
-                mostrarCandidatos(quantidadeMostrar,candidatosArr);
-        }
-        else if (argv[2] == std::string("best-questions")){
-                ordernarQuestoesOpcao(questoes,0,qtdQuestoes);
-                mostrarQuestoes(questoes,quantidadeMostrar,0);
-        }
-        else if (argv[2] == std::string("worst-questions")){
-                ordernarQuestoesOpcao(questoes,1,qtdQuestoes);
-                mostrarQuestoes(questoes,quantidadeMostrar,1);
-        }
-        else if (argv[2] == std::string("blank-questions")){
-                ordernarQuestoesOpcao(questoes,2,qtdQuestoes);
-                mostrarQuestoes(questoes,quantidadeMostrar,2);
-        }
-        else{
-                std::cout << "Comando inválido. Apenas: best,worst,best-questions,worst-questions,blank-questions." << std::endl;
-        }
+        escolherMetodo(metodo,tamanhoTabela,questoes,candidatosArr,&p);
 
         
         return 0;
