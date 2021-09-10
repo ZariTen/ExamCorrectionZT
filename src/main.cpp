@@ -45,6 +45,7 @@ void escolherMetodo(std::string metodo, int tamanhoTabela, Questao* questoes,Can
         int qtdAlunos = prv->getQtdAlunos();
         int qtdQuestoes = prv->getQtdQuestoes();
         int metodoParaInt = metodoEmInt(metodo);
+        int metodoQuestao = metodoParaInt - 2;
 
         switch(metodoParaInt){
                 default:
@@ -58,17 +59,9 @@ void escolherMetodo(std::string metodo, int tamanhoTabela, Questao* questoes,Can
                         ordernarPiorCandidato(candidatos,qtdAlunos);
                         mostrarCandidatos(tamanhoTabela,candidatos);
                         break;
-                case 2:
-                        ordernarQuestoesOpcao(questoes,0,qtdQuestoes);
-                        mostrarQuestoes(questoes,tamanhoTabela,0);
-                        break;
-                case 3:
-                        ordernarQuestoesOpcao(questoes,1,qtdQuestoes);
-                        mostrarQuestoes(questoes,tamanhoTabela,1);
-                        break;
-                case 4:
-                        ordernarQuestoesOpcao(questoes,2,qtdQuestoes);
-                        mostrarQuestoes(questoes,tamanhoTabela,2);
+                case 2: case 3: case 4:
+                        ordernarQuestoesOpcao(questoes,metodoQuestao,qtdQuestoes);
+                        mostrarQuestoes(questoes,tamanhoTabela,metodoQuestao);
                         break;
         }
 }
